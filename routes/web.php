@@ -14,15 +14,15 @@ Route::post('/forgot_password', 'AuthController@getForgotPassword');
 
 //Error Handler
 Route::get('/403', 'HomeController@show403');
-Route::get('/getcwd', function(){
-    return getcwd();
-});
-Route::get('/locatephp5', function(){
-    return exec('locate php5');
-});
-Route::get('/locatephp', function(){
-    return exec('locate php');
-});
+Route::get('/getcwd', function () {
+		return getcwd();
+	});
+Route::get('/locatephp5', function () {
+		return exec('locate php5');
+	});
+Route::get('/locatephp', function () {
+		return exec('locate php');
+	});
 Route::get('/404', 'HomeController@show404');
 Route::get('/500', 'HomeController@show500');
 Route::get('/503', 'HomeController@show503');
@@ -47,187 +47,195 @@ Route::post('/submit_likes', 'HomeController@submitLike');
 
 Route::group(array('namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth'), function () {
 
-    Route::get('/', 'DashboardController@index');
+		Route::get('/', 'DashboardController@index');
 
-    Route::get('/update_application', 'DashboardController@updateApplication');
+		Route::get('/update_application', 'DashboardController@updateApplication');
 
-    Route::get('/gvva-access', 'DashboardController@giveMeWriteAccess');
-    Route::get('/rmva-access', 'DashboardController@removeWriteAccess');
+		Route::get('/gvva-access', 'DashboardController@giveMeWriteAccess');
+		Route::get('/rmva-access', 'DashboardController@removeWriteAccess');
 
-//    Route::group(array('prefix' => 'api'), function () {
-//        get('/get_sub_categories_by_category/{id}', 'APIController@getSubCategories');
-//        get('/get_tags', 'APIController@getTags');
-//    });
+		Route::group(array('prefix' => 'api'), function () {
+				Route::get('/get_sub_categories_by_category/{id}', 'APIController@getSubCategories');
+				Route::get('/get_tags', 'APIController@getTags');
+			});
 
-    Route::group(array('prefix' => 'crons'), function () {
+		Route::group(array('prefix' => 'crons'), function () {
 
-        Route::get('/', 'CronController@all');
-        Route::get('/all', 'CronController@all');
-        Route::get('/run', 'CronController@run');
+				Route::get('/', 'CronController@all');
+				Route::get('/all', 'CronController@all');
+				Route::get('/run', 'CronController@run');
 
-        Route::get('/view/{id}', 'CronController@view')->where(array('id' => '[0-9]+'));
-        Route::get('/delete/{id}', 'CronController@delete')->where(array('id' => '[0-9]+'));;
+				Route::get('/view/{id}', 'CronController@view')->where(array('id'     => '[0-9]+'));
+				Route::get('/delete/{id}', 'CronController@delete')->where(array('id' => '[0-9]+'));
+				;
 
-    });
+			});
 
-    Route::group(array('prefix' => 'roles'), function () {
+		Route::group(array('prefix' => 'roles'), function () {
 
-        Route::get('/', 'UserRolesController@all');
-        Route::get('/all', 'UserRolesController@all');
+				Route::get('/', 'UserRolesController@all');
+				Route::get('/all', 'UserRolesController@all');
 
-        Route::get('/create', 'UserRolesController@create');
-        Route::get('/edit/{id}', 'UserRolesController@edit')->where(array('id' => '[0-9]+'));
-        Route::get('/delete/{id}', 'UserRolesController@delete')->where(array('id' => '[0-9]+'));;
+				Route::get('/create', 'UserRolesController@create');
+				Route::get('/edit/{id}', 'UserRolesController@edit')->where(array('id'     => '[0-9]+'));
+				Route::get('/delete/{id}', 'UserRolesController@delete')->where(array('id' => '[0-9]+'));
+				;
 
-        Route::post('/create', 'UserRolesController@store');
-        Route::post('/update', 'UserRolesController@update');
+				Route::post('/create', 'UserRolesController@store');
+				Route::post('/update', 'UserRolesController@update');
 
-    });
+			});
 
+		Route::group(array('prefix' => 'users'), function () {
 
-    Route::group(array('prefix' => 'users'), function () {
+				Route::get('/', 'UsersController@all');
+				Route::get('/all', 'UsersController@all');
 
-        Route::get('/', 'UsersController@all');
-        Route::get('/all', 'UsersController@all');
+				Route::get('/create', 'UsersController@create');
+				Route::get('/edit/{id}', 'UsersController@edit')->where(array('id'     => '[0-9]+'));
+				Route::get('/delete/{id}', 'UsersController@delete')->where(array('id' => '[0-9]+'));
+				;
 
-        Route::get('/create', 'UsersController@create');
-        Route::get('/edit/{id}', 'UsersController@edit')->where(array('id' => '[0-9]+'));
-        Route::get('/delete/{id}', 'UsersController@delete')->where(array('id' => '[0-9]+'));;
+				Route::post('/create', 'UsersController@store');
+				Route::post('/update', 'UsersController@update');
 
-        Route::post('/create', 'UsersController@store');
-        Route::post('/update', 'UsersController@update');
+			});
 
-    });
+		Route::group(array('prefix' => 'categories'), function () {
 
-    Route::group(array('prefix' => 'categories'), function () {
+				Route::get('/', 'CategoryController@all');
+				Route::get('/all', 'CategoryController@all');
 
-        Route::get('/', 'CategoryController@all');
-        Route::get('/all', 'CategoryController@all');
+				Route::get('/create', 'CategoryController@create');
+				Route::get('/edit/{id}', 'CategoryController@edit')->where(array('id' => '[0-9]+'));
+				;
+				Route::get('/delete/{id}', 'CategoryController@delete')->where(array('id' => '[0-9]+'));
+				;
 
-        Route::get('/create', 'CategoryController@create');
-        Route::get('/edit/{id}', 'CategoryController@edit')->where(array('id' => '[0-9]+'));;
-        Route::get('/delete/{id}', 'CategoryController@delete')->where(array('id' => '[0-9]+'));;
+				Route::post('/create', 'CategoryController@store');
+				Route::post('/update', 'CategoryController@update');
 
-        Route::post('/create', 'CategoryController@store');
-        Route::post('/update', 'CategoryController@update');
+			});
 
-    });
+		Route::group(array('prefix' => 'sub_categories'), function () {
 
-    Route::group(array('prefix' => 'sub_categories'), function () {
+				Route::get('/', 'SubCategoryController@all');
+				Route::get('/all', 'SubCategoryController@all');
 
-        Route::get('/', 'SubCategoryController@all');
-        Route::get('/all', 'SubCategoryController@all');
+				Route::get('/create', 'SubCategoryController@create');
+				Route::get('/edit/{id}', 'SubCategoryController@edit')->where(array('id' => '[0-9]+'));
+				;
+				Route::get('/delete/{id}', 'SubCategoryController@delete')->where(array('id' => '[0-9]+'));
+				;
 
-        Route::get('/create', 'SubCategoryController@create');
-        Route::get('/edit/{id}', 'SubCategoryController@edit')->where(array('id' => '[0-9]+'));;
-        Route::get('/delete/{id}', 'SubCategoryController@delete')->where(array('id' => '[0-9]+'));;
+				Route::post('/create', 'SubCategoryController@store');
+				Route::post('/update', 'SubCategoryController@update');
 
-        Route::post('/create', 'SubCategoryController@store');
-        Route::post('/update', 'SubCategoryController@update');
+			});
 
-    });
+		Route::group(array('prefix' => 'sources'), function () {
 
-    Route::group(array('prefix' => 'sources'), function () {
+				Route::get('/', 'SourcesController@all');
+				Route::get('/all', 'SourcesController@all');
+				Route::get('/pull_feeds', 'SourcesController@pullFeeds');
+				Route::get('/pull_page', 'SourcesController@pullPages');
 
-        Route::get('/', 'SourcesController@all');
-        Route::get('/all', 'SourcesController@all');
-        Route::get('/pull_feeds', 'SourcesController@pullFeeds');
-        Route::get('/pull_page', 'SourcesController@pullPages');
+				Route::get('/create', 'SourcesController@create');
+				Route::get('/edit/{id}', 'SourcesController@edit')->where(array('id' => '[0-9]+'));
+				;
+				Route::get('/refresh/{id}', 'SourcesController@refresh')->where(array('id' => '[0-9]+'));
+				;
+				Route::get('/delete/{id}', 'SourcesController@delete')->where(array('id' => '[0-9]+'));
+				;
 
-        Route::get('/create', 'SourcesController@create');
-        Route::get('/edit/{id}', 'SourcesController@edit')->where(array('id' => '[0-9]+'));;
-        Route::get('/refresh/{id}', 'SourcesController@refresh')->where(array('id' => '[0-9]+'));;
-        Route::get('/delete/{id}', 'SourcesController@delete')->where(array('id' => '[0-9]+'));;
+				Route::post('/create', 'SourcesController@store');
+				Route::post('/update', 'SourcesController@update');
 
-        Route::post('/create', 'SourcesController@store');
-        Route::post('/update', 'SourcesController@update');
+			});
 
-    });
+		Route::group(array('prefix' => 'posts'), function () {
 
-    Route::group(array('prefix' => 'posts'), function () {
+				Route::get('/', 'PostsController@all');
+				Route::get('/all', 'PostsController@all');
 
-        Route::get('/', 'PostsController@all');
-        Route::get('/all', 'PostsController@all');
+				Route::get('/create', 'PostsController@create');
+				Route::get('/edit/{id}', 'PostsController@edit')->where(array('id'     => '[0-9]+'));
+				Route::get('/delete/{id}', 'PostsController@delete')->where(array('id' => '[0-9]+'));
 
-        Route::get('/create', 'PostsController@create');
-        Route::get('/edit/{id}', 'PostsController@edit')->where(array('id' => '[0-9]+'));
-        Route::get('/delete/{id}', 'PostsController@delete')->where(array('id' => '[0-9]+'));
+				Route::post('/create', 'PostsController@store');
+				Route::post('/update', 'PostsController@update');
 
-        Route::post('/create', 'PostsController@store');
-        Route::post('/update', 'PostsController@update');
+			});
 
-    });
+		Route::group(array('prefix' => 'ratings'), function () {
+				Route::get('/', 'RatingsController@all');
+				Route::get('/all', 'RatingsController@all');
+				Route::get('/delete/{id}', 'RatingsController@delete')->where(array('id' => '[0-9]+'));
+			});
 
-    Route::group(array('prefix' => 'ratings'), function () {
-        Route::get('/', 'RatingsController@all');
-        Route::get('/all', 'RatingsController@all');
-        Route::get('/delete/{id}', 'RatingsController@delete')->where(array('id' => '[0-9]+'));
-    });
+		Route::group(array('prefix' => 'tags'), function () {
+				Route::get('/', 'TagsController@all');
+				Route::get('/all', 'TagsController@all');
+				Route::get('/delete/{id}', 'TagsController@delete')->where(array('id' => '[0-9]+'));
+			});
 
-    Route::group(array('prefix' => 'tags'), function () {
-        Route::get('/', 'TagsController@all');
-        Route::get('/all', 'TagsController@all');
-        Route::get('/delete/{id}', 'TagsController@delete')->where(array('id' => '[0-9]+'));
-    });
+		Route::group(array('prefix' => 'pages'), function () {
 
-    Route::group(array('prefix' => 'pages'), function () {
+				Route::get('/', 'PagesController@all');
+				Route::get('/all', 'PagesController@all');
 
-        Route::get('/', 'PagesController@all');
-        Route:: get('/all', 'PagesController@all');
+				Route::get('/create', 'PagesController@create');
+				Route::get('/edit/{id}', 'PagesController@edit')->where(array('id'     => '[0-9]+'));
+				Route::get('/delete/{id}', 'PagesController@delete')->where(array('id' => '[0-9]+'));
 
-        Route::get('/create', 'PagesController@create');
-        Route::get('/edit/{id}', 'PagesController@edit')->where(array('id' => '[0-9]+'));
-        Route::get('/delete/{id}', 'PagesController@delete')->where(array('id' => '[0-9]+'));
+				Route::post('/create', 'PagesController@store');
+				Route::post('/update', 'PagesController@update');
 
-        Route::post('/create', 'PagesController@store');
-        Route::post('/update', 'PagesController@update');
+			});
 
-    });
+		Route::group(array('prefix' => 'ads'), function () {
 
-    Route::group(array('prefix' => 'ads'), function () {
+				Route::get('/', 'AdsController@all');
+				Route::get('/all', 'AdsController@all');
 
-        Route::get('/', 'AdsController@all');
-        Route::get('/all', 'AdsController@all');
+				Route::get('/create', 'AdsController@create');
+				Route::get('/edit/{id}', 'AdsController@edit')->where(array('id' => '[0-9]+'));
+				;
+				Route::get('/delete/{id}', 'AdsController@delete')->where(array('id' => '[0-9]+'));
+				;
 
-        Route::get('/create', 'AdsController@create');
-        Route::get('/edit/{id}', 'AdsController@edit')->where(array('id' => '[0-9]+'));;
-        Route::get('/delete/{id}', 'AdsController@delete')->where(array('id' => '[0-9]+'));;
+				Route::post('/create', 'AdsController@store');
+				Route::post('/update', 'AdsController@update');
 
-        Route::post('/create', 'AdsController@store');
-        Route::post('/update', 'AdsController@update');
+			});
 
-    });
+		Route::group(array('prefix' => 'statistics'), function () {
 
-    Route::group(array('prefix' => 'statistics'), function () {
+				Route::get('/', 'StatisticsController@all');
+				Route::get('/all', 'StatisticsController@all');
 
-        Route::get('/', 'StatisticsController@all');
-        Route::get('/all', 'StatisticsController@all');
+			});
 
+		Route::group(array('prefix' => 'settings'), function () {
 
-    });
+				Route::get('/', 'SettingsController@all');
+				Route::get('/all', 'SettingsController@all');
+				Route::get('delete_manually/{days}', 'SettingsController@deleteOldManually');
 
-    Route::group(array('prefix' => 'settings'), function () {
+				Route::post('update_custom_css', 'SettingsController@updateCustomCSS');
+				Route::post('update_custom_js', 'SettingsController@updateCustomJS');
+				Route::post('update_social', 'SettingsController@updateSocial');
+				Route::post('update_comments', 'SettingsController@updateComments');
+				Route::post('update_seo', 'SettingsController@updateSEO');
+				Route::post('update_general', 'SettingsController@updateGeneral');
+				Route::post('delete_old_news', 'SettingsController@updateDeleteNews');
 
-        Route::get('/', 'SettingsController@all');
-        Route::get('/all', 'SettingsController@all');
-        Route::get('delete_manually/{days}', 'SettingsController@deleteOldManually');
+			});
 
-        Route::post('update_custom_css', 'SettingsController@updateCustomCSS');
-        Route::post('update_custom_js', 'SettingsController@updateCustomJS');
-        Route::post('update_social', 'SettingsController@updateSocial');
-        Route::post('update_comments', 'SettingsController@updateComments');
-        Route::post('update_seo', 'SettingsController@updateSEO');
-        Route::post('update_general', 'SettingsController@updateGeneral');
-        Route::post('delete_old_news', 'SettingsController@updateDeleteNews');
+		Route::get('/redactor/images.json', 'DashboardController@redactorImages');
+		Route::post('redactor', 'DashboardController@handleRedactorUploads');
 
-    });
-
-    Route::get('/redactor/images.json', 'DashboardController@redactorImages');
-    Route::post('redactor', 'DashboardController@handleRedactorUploads');
-
-
-});
-
+	});
 
 //should be last route
 Route::get('/{article_slug}', 'HomeController@article');
