@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "78e1b7081721f300ab9e918803aa4bb7",
+    "content-hash": "bb3edbffe94b8f0890d222ec517a18b8",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -130,20 +130,23 @@
         },
         {
             "name": "cohensive/embed",
-            "version": "v5.0.0",
+            "version": "v5.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KaneCohen/embed.git",
-                "reference": "9d876b0180078ced59a1172b49c1e7bed5c10440"
+                "reference": "efbfbd529497f18471d4ac4c2aea7b6b8eb1a336"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KaneCohen/embed/zipball/9d876b0180078ced59a1172b49c1e7bed5c10440",
-                "reference": "9d876b0180078ced59a1172b49c1e7bed5c10440",
+                "url": "https://api.github.com/repos/KaneCohen/embed/zipball/efbfbd529497f18471d4ac4c2aea7b6b8eb1a336",
+                "reference": "efbfbd529497f18471d4ac4c2aea7b6b8eb1a336",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -169,7 +172,7 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2015-02-05T23:26:35+00:00"
+            "time": "2018-05-16T20:03:36+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -457,45 +460,95 @@
             "time": "2018-03-03T17:56:25+00:00"
         },
         {
-            "name": "guzzlehttp/guzzle",
-            "version": "4.2.4",
+            "name": "fzaninotto/faker",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "13a8e5acff26b0a87d353042170b48976da004a1"
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "f72816b43e74063c8b10357394b6bba8cb1c10de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/13a8e5acff26b0a87d353042170b48976da004a1",
-                "reference": "13a8e5acff26b0a87d353042170b48976da004a1",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/f72816b43e74063c8b10357394b6bba8cb1c10de",
+                "reference": "f72816b43e74063c8b10357394b6bba8cb1c10de",
                 "shasum": ""
             },
             "require": {
-                "ext-json": "*",
-                "guzzlehttp/streams": "~2.1",
-                "php": ">=5.4.0"
+                "php": "^5.3.3 || ^7.0"
             },
             "require-dev": {
-                "ext-curl": "*",
-                "phpunit/phpunit": "~4.0",
-                "psr/log": "~1.0"
-            },
-            "suggest": {
-                "ext-curl": "Guzzle will use specific adapters if cURL is present"
+                "ext-intl": "*",
+                "phpunit/phpunit": "^4.8.35 || ^5.7",
+                "squizlabs/php_codesniffer": "^1.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2-dev"
+                    "dev-master": "1.8-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "GuzzleHttp\\": "src/"
-                },
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2018-07-12T10:23:15+00:00"
+        },
+        {
+            "name": "guzzlehttp/guzzle",
+            "version": "6.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/promises": "^1.0",
+                "guzzlehttp/psr7": "^1.4",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4 || ^7.0",
+                "psr/log": "^1.0"
+            },
+            "suggest": {
+                "psr/log": "Required for using the Log middleware"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.3-dev"
+                }
+            },
+            "autoload": {
                 "files": [
-                    "src/functions.php"
-                ]
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -508,7 +561,7 @@
                     "homepage": "https://github.com/mtdowling"
                 }
             ],
-            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "description": "Guzzle is a PHP HTTP client library",
             "homepage": "http://guzzlephp.org/",
             "keywords": [
                 "client",
@@ -519,40 +572,40 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-07-15T17:44:18+00:00"
+            "time": "2018-04-22T15:46:56+00:00"
         },
         {
-            "name": "guzzlehttp/streams",
-            "version": "2.1.0",
+            "name": "guzzlehttp/promises",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/streams.git",
-                "reference": "f91b721d73f0e561410903b3b3c90a5d0e40b534"
+                "url": "https://github.com/guzzle/promises.git",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/streams/zipball/f91b721d73f0e561410903b3b3c90a5d0e40b534",
-                "reference": "f91b721d73f0e561410903b3b3c90a5d0e40b534",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=5.5.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "^4.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "GuzzleHttp\\Stream\\": "src/"
+                    "GuzzleHttp\\Promise\\": "src/"
                 },
                 "files": [
-                    "src/functions.php"
+                    "src/functions_include.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -566,13 +619,76 @@
                     "homepage": "https://github.com/mtdowling"
                 }
             ],
-            "description": "Provides a simple abstraction over streams of data (Guzzle 4+)",
-            "homepage": "http://guzzlephp.org/",
+            "description": "Guzzle promises library",
             "keywords": [
-                "Guzzle",
-                "stream"
+                "promise"
             ],
-            "time": "2014-08-17T21:15:53+00:00"
+            "time": "2016-12-20T10:07:11+00:00"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
+                }
+            ],
+            "description": "PSR-7 message implementation that also provides common utility methods",
+            "keywords": [
+                "http",
+                "message",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
+            ],
+            "time": "2017-03-20T17:10:46+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1136,6 +1252,56 @@
             "time": "2017-02-14T16:28:37+00:00"
         },
         {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-08-06T14:39:51+00:00"
+        },
+        {
             "name": "psr/log",
             "version": "1.0.2",
             "source": {
@@ -1314,26 +1480,33 @@
         },
         {
             "name": "roumen/sitemap",
-            "version": "v2.5.8",
+            "version": "v2.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravelium/laravel-sitemap.git",
-                "reference": "637e094b2f5e1e56389845dcd3f0e8db4c2f05d9"
+                "reference": "977dda2ff52843e8162a11e5760d04372d0b04f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravelium/laravel-sitemap/zipball/637e094b2f5e1e56389845dcd3f0e8db4c2f05d9",
-                "reference": "637e094b2f5e1e56389845dcd3f0e8db4c2f05d9",
+                "url": "https://api.github.com/repos/Laravelium/laravel-sitemap/zipball/977dda2ff52843e8162a11e5760d04372d0b04f8",
+                "reference": "977dda2ff52843e8162a11e5760d04372d0b04f8",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "~5",
-                "php": ">=5.5.9"
+                "illuminate/support": "5.5.*",
+                "php": ">=7.0.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "3.7.*"
+                "phpunit/phpunit": "5.4.*"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Roumen\\Sitemap\\SitemapServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Roumen\\Sitemap": "src/"
@@ -1346,133 +1519,19 @@
             "authors": [
                 {
                     "name": "Roumen Damianoff",
-                    "email": "roumen@dawebs.com",
-                    "homepage": "https://roumen.it",
+                    "email": "roumen@crimsson.com",
+                    "homepage": "https://damianoff.com",
                     "role": "Developer"
                 }
             ],
-            "description": "A simple sitemap generator for Laravel.",
-            "homepage": "https://roumen.it/projects/laravel-sitemap",
+            "description": "A not so simple sitemap generator for Laravel.",
+            "homepage": "https://damianoff.com/en/projects/laravel-sitemap",
             "keywords": [
                 "Sitemap",
                 "generator",
                 "laravel"
             ],
-            "time": "2015-12-17T17:30:38+00:00"
-        },
-        {
-            "name": "sabre/uri",
-            "version": "2.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sabre-io/uri.git",
-                "reference": "a42126042c7dcb53e2978dadb6d22574d1359b4c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sabre-io/uri/zipball/a42126042c7dcb53e2978dadb6d22574d1359b4c",
-                "reference": "a42126042c7dcb53e2978dadb6d22574d1359b4c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^6.0",
-                "sabre/cs": "~1.0.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "lib/functions.php"
-                ],
-                "psr-4": {
-                    "Sabre\\Uri\\": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Evert Pot",
-                    "email": "me@evertpot.com",
-                    "homepage": "http://evertpot.com/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Functions for making sense out of URIs.",
-            "homepage": "http://sabre.io/uri/",
-            "keywords": [
-                "rfc3986",
-                "uri",
-                "url"
-            ],
-            "time": "2017-02-20T20:02:35+00:00"
-        },
-        {
-            "name": "sabre/xml",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sabre-io/xml.git",
-                "reference": "7a490ace8b568026ec7e86a6bf427b88f1271cc7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sabre-io/xml/zipball/7a490ace8b568026ec7e86a6bf427b88f1271cc7",
-                "reference": "7a490ace8b568026ec7e86a6bf427b88f1271cc7",
-                "shasum": ""
-            },
-            "require": {
-                "ext-dom": "*",
-                "ext-xmlreader": "*",
-                "ext-xmlwriter": "*",
-                "lib-libxml": ">=2.6.20",
-                "php": ">=7.0",
-                "sabre/uri": ">=1.0,<3.0.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "*",
-                "sabre/cs": "~1.0.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Sabre\\Xml\\": "lib/"
-                },
-                "files": [
-                    "lib/Deserializer/functions.php",
-                    "lib/Serializer/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Evert Pot",
-                    "email": "me@evertpot.com",
-                    "homepage": "http://evertpot.com/",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Markus Staab",
-                    "email": "markus.staab@redaxo.de",
-                    "role": "Developer"
-                }
-            ],
-            "description": "sabre/xml is an XML library that you may not hate.",
-            "homepage": "https://sabre.io/xml/",
-            "keywords": [
-                "XMLReader",
-                "XMLWriter",
-                "dom",
-                "xml"
-            ],
-            "time": "2018-02-08T11:04:35+00:00"
+            "time": "2017-09-07T16:19:37+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2460,48 +2519,6 @@
             "time": "2018-07-09T08:21:26+00:00"
         },
         {
-            "name": "thujohn/rss",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thujohn/rss-l4.git",
-                "reference": "b65908ca63101b0f6bf53972b0245b0d0454d5ca"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thujohn/rss-l4/zipball/b65908ca63101b0f6bf53972b0245b0d0454d5ca",
-                "reference": "b65908ca63101b0f6bf53972b0245b0d0454d5ca",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "4.*|5.*",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Thujohn\\Rss\\": "src/Thujohn/Rss/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "thujohn",
-                    "email": "jonathan.thuau@gmail.com"
-                }
-            ],
-            "description": "RSS builder for Laravel 4",
-            "keywords": [
-                "laravel",
-                "laravel4",
-                "rss"
-            ],
-            "time": "2014-12-22T21:07:19+00:00"
-        },
-        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.1",
             "source": {
@@ -2730,56 +2747,6 @@
                 "instantiate"
             ],
             "time": "2017-07-22T11:58:36+00:00"
-        },
-        {
-            "name": "fzaninotto/faker",
-            "version": "v1.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "f72816b43e74063c8b10357394b6bba8cb1c10de"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/f72816b43e74063c8b10357394b6bba8cb1c10de",
-                "reference": "f72816b43e74063c8b10357394b6bba8cb1c10de",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.3.3 || ^7.0"
-            },
-            "require-dev": {
-                "ext-intl": "*",
-                "phpunit/phpunit": "^4.8.35 || ^5.7",
-                "squizlabs/php_codesniffer": "^1.5"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.8-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Faker\\": "src/Faker/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "François Zaninotto"
-                }
-            ],
-            "description": "Faker is a PHP library that generates fake data for you.",
-            "keywords": [
-                "data",
-                "faker",
-                "fixtures"
-            ],
-            "time": "2018-07-12T10:23:15+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -3220,8 +3187,7 @@
             "authors": [
                 {
                     "name": "Chris Boulton",
-                    "homepage": "http://github.com/chrisboulton",
-                    "role": "Original developer"
+                    "homepage": "http://github.com/chrisboulton"
                 }
             ],
             "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
@@ -4529,10 +4495,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "barryvdh/laravel-ide-helper": 20,
-        "yangqi/htmldom": 20,
-        "thujohn/rss": 20,
-        "sabre/xml": 20
+        "yangqi/htmldom": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
