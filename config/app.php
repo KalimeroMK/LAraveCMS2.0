@@ -199,6 +199,7 @@ return [
 		'Embed'     => Cohensive\Embed\Facades\Embed::class ,
 		'Form'      => Collective\Html\FormFacade::class ,
 		'Html'      => Collective\Html\HtmlFacade::class ,
+        'Carbon' => Carbon\Carbon::class,
 
 	],
 

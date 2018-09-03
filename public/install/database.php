@@ -86,7 +86,7 @@ if (isset($_POST['submit'])) {
 
         $sql_contents = SplitSQL($sql_filename);
 
-        $config_sample_path = '../../.env.example';
+        $config_sample_path = '../../.env';
 
         $data = file_get_contents($config_sample_path);
 
